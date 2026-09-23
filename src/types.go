@@ -71,8 +71,8 @@ var FledEnemy *Enemy = nil
 var StatusMsg string = ""
 
 var MerchantStock = map[string]int{
-	"🧪 Potion de soin basique":     5,
-	"🧪 Potion de soin supérieure":  5,
+	"🍷 Potion de soin basique":     5,
+	"🍷 Potion de soin supérieure":  5,
 	"🧪 Potion de magie basique":    5,
 	"🧪 Potion de magie supérieure": 5,
 	"🔥 Boule de Feu":               1,

@@ -19,7 +19,7 @@ func clearScreen() {
 func openInventoryMenu(player *Character, reader *bufio.Reader) {
 	for {
 		clearScreen()
-		fmt.Println(Cyan + "--- 🎒 GESTION DU SAC À DOS (PIXELISÉ) ---" + Reset)
+		fmt.Println(Cyan + "--- 🎒 GESTION DU SAC À DOS  ---" + Reset)
 		fmt.Printf(" ❤️ %d/%d  |  ⭐ %d/%d\n", player.CurrentHP, player.MaxHP, player.CurrentMagie, player.MaxMagie)
 		fmt.Println(Gray + "------------------------------------------------" + Reset)
 
@@ -488,6 +488,7 @@ K   ":                                                           z   R
 		} else {
 			fmt.Println(Gray + " [7] 🔒 Affronter les 3 Mentors (Requis : 3 victoires)" + Reset)
 		}
+		fmt.Println(" [8] 🎒 Qui sont-ils (Easter egg)")
 
 		fmt.Println(" [0] 🚪 Quitter")
 		fmt.Println(Gray + "--------------------------------------------------------" + Reset)
@@ -595,6 +596,11 @@ __   _____ | |_ _ __ ___   _ __  _   _(_)___ ___  __ _ _ __   ___ ___  | |
 				fmt.Println(Red + "❌ Vous devez avoir au moins 3 victoires pour affronter les mentors !" + Reset)
 				time.Sleep(1500 * time.Millisecond)
 			}
+
+		case "8":
+			showCreators()
+
+			// Appel de la fonction qui affiche les prénoms
 		case "0":
 			clearScreen() // <--- Nettoie l'écran juste avant de fermer
 			fmt.Println(Cyan + "Fermeture du système YNOV..." + Reset)
@@ -603,4 +609,36 @@ __   _____ | |_ _ __ ___   _ __  _   _(_)___ ___  __ _ _ __   ___ ___  | |
 			return
 		}
 	}
+}
+func showCreators() {
+	clearScreen() // Nettoie l'écran proprement
+
+	fmt.Println(Cyan + Bold + "========================================" + Reset)
+	fmt.Println(Green + Bold + "         QUI SONT-ILS ?        " + Reset)
+	fmt.Println(Cyan + Bold + "========================================" + Reset)
+
+	fmt.Println("\nLes deux personnages dans les parties 2 et 3 sont :\n")
+
+	// Remplacez "Prénom 1" et "Prénom 2" par les vrais prénoms !
+	fmt.Println(Yellow + `     
+    _    ____  ____    _    
+   / \  | __ )| __ )  / \   
+  / _ \ |  _ \|  _ \ / _ \  
+ / ___ \| |_) | |_) / ___ \ 
+/_/   \_\____/|____/_/   \_\ 
+	` + Reset)
+	fmt.Println(Purple + `
+ ____  ____ ___ _____ _     ____  _____ ____   ____ 
+/ ___||  _ \_ _| ____| |   | __ )| ____|  _ \ / ___|
+\___ \| |_) | ||  _| | |   |  _ \|  _| | |_) | |  _ 
+ ___) |  __/| || |___| |___| |_) | |___|  _ <| |_| |
+|____/|_|  |___|_____|_____|____/|_____|_| \_\\____|
+	` + Reset + "\n")
+
+	fmt.Println(Cyan + "========================================" + Reset)
+	fmt.Println("Appuyez sur Entrée pour revenir au menu...")
+
+	// Attend que le joueur appuie sur Entrée pour repartir
+	var input string
+	fmt.Scanln(&input)
 }

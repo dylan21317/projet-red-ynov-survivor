@@ -104,8 +104,8 @@ func addExperience(c *Character, expGained int) {
 }
 
 func restockShops() {
-	MerchantStock["🧪 Potion de soin basique"] += 3
-	MerchantStock["🧪 Potion de soin supérieure"] += 3
+	MerchantStock["🍷 Potion de soin basique"] += 3
+	MerchantStock["🍷 Potion de soin supérieure"] += 3
 	MerchantStock["🧪 Potion de magie basique"] += 3
 	MerchantStock["🧪 Potion de magie supérieure"] += 3
 	MerchantStock["🪶 Plume de Corbeau"] += 2
